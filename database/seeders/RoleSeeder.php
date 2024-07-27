@@ -24,7 +24,7 @@ class RoleSeeder extends Seeder
 
         $user = User::find(2); // atau ID pengguna yang sesuai
         if ($user) {
-            $user->assignRole('user');
+            $user->assignRole('users');
         }
     }
 }

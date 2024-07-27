@@ -11,13 +11,13 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::orderBy('updated_at', 'desc')->get();
-        return view('admin.dashboard', compact('cars'));
+        return view('cars.index', compact('cars'));
     }
 
     // Menampilkan form tambah mobil untuk admin
     public function create()
     {
-        return view('admin.create');
+        return view('cars.create');
     }
 
     // Menyimpan data mobil baru untuk admin
@@ -31,13 +31,13 @@ class CarController extends Controller
         ]);
 
         $car = Car::create($validatedData);
-        return redirect()->route('admin.dashboard')->with('success', 'Car added successfully!');
+        return redirect()->route('cars.index')->with('success', 'Car added successfully!');
     }
 
     // Menampilkan form edit mobil untuk admin
     public function edit(Car $car)
     {
-        return view('admin.edit', compact('car'));
+        return view('cars.edit', compact('car'));
     }
 
     // Memperbarui data mobil untuk admin
@@ -52,13 +52,13 @@ class CarController extends Controller
 
         $car->update($request->all());
 
-        return redirect()->route('admin.dashboard')->with('success', 'Car updated successfully.');
+        return redirect()->route('cars.index')->with('success', 'Car updated successfully.');
     }
 
     // Menghapus mobil untuk admin
     public function destroy(Car $car)
     {
         $car->delete();
-        return redirect()->route('admin.dashboard')->with('success', 'Car deleted successfully!');
+        return redirect()->route('cars.index')->with('success', 'Car deleted successfully!');
     }
 }

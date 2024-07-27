@@ -24,15 +24,24 @@ class User extends Authenticatable
         'role_id'
     ];
 
+    public function is_admin()
+    {
+        return $this->role->name === 'admin';
+    }
+
+    /**
+     * Periksa apakah pengguna adalah user biasa.
+     *
+     * @return bool
+     */
+    public function is_user()
+    {
+        return $this->role->name === 'user';
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id');
-    }
-
-    // Check if the user has a specific role
-    public function hasRole($roleName)
-    {
-        return $this->role && $this->role->name === $roleName;
     }
 
     /**

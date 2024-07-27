@@ -13,6 +13,15 @@ class Car extends Model
         'brand',
         'model',
         'license_plate',
-        'rental_rate'
+        'rental_rate',
+        'available',
     ];
+
+    /**
+     * Get the rentals for the car.
+     */
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
 }
