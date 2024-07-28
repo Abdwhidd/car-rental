@@ -11,7 +11,7 @@
 Klon dan siapkan repositori ini di lingkungan lokal Anda menggunakan git dan perintah ini
 ```
 git clone https://github.com/abdwhidd/car-rental.git
-cd reimbursement
+cd car-rental
 composer install
 npm install
 ```
